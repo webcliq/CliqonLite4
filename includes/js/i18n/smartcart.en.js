@@ -1,0 +1,26 @@
+// Cart Language EN
+var clstr = [
+	'My cart', 'Cart | Total Products: _PRODUCTCOUNT_ | Total Quantity: _ITEMCOUNT_', 'Products', 'Search', 
+	'Category',
+	'Clear',
+	'Add to Cart',
+	'Quantity',
+	'Price',
+	'Subtotal',
+	'Total',
+	'Remove',
+	'Checkout',
+	'Do you want to remove "_PRODUCTNAME_" from cart?',
+	'Your cart is empty',
+	'No products to display',
+	'Product cannot be added',
+	'Product added to the cart',
+	'Product removed from the cart',
+	'Product quantity updated',
+	'Invalid quantity. Product cannot be added',
+	'Invalid quantity. Quantity cannot be updated',
+	'Search Product',
+	'Clear Search',
+	'24',
+	'25'
+]

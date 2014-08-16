@@ -1,0 +1,26 @@
+// Cart Language EN
+var clstr = [
+	'Mi cesta', 'Cesta | Productos totales: _PRODUCTCOUNT_ | Cantidad total: _ITEMCOUNT_', 'Productos', 'Buscar', 
+	'Categoria',
+	'Borrar',
+	'Agregar a cesta',
+	'Cantidad',
+	'Precio',
+	'Subtotal',
+	'Total',
+	'Quitar',
+	'Caja',
+	'¿Quiere quitar "_PRODUCTNAME_" desde la cesta?',
+	'Su cesta es vacio',
+	'No hay productos a mostrar',
+	'Products no se puede agregado',
+	'Producto anadido a la cesta',
+	'Producto anulado de la cesta',
+	'Cantidad del producto actualizado',
+	'Cantidad en error. Producto no se puede agregado',
+	'Cantidad en error. Producto no se puede actualizado',
+	'Busca producto',
+	'Borrar busqueda',
+	'24',
+	'25'
+]

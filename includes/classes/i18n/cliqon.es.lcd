@@ -1,0 +1,50 @@
+<?php
+$lstr = array(0 =>
+	'Filtro por','Todo','Página','de','Primera', 'Anterior','Proximo','Ultimo','Hoy','Mes','Semana',  // 10
+	'Día','Mostrar Ayuda','Imprimir Contenido','Inicio','Mostrar Configuracin','Administración','Error de Acceso','Cambiar Búsqueda Rápida','Verificar faltos','Cambiar Contenido', // 20
+	'Editar Colección',
+	'Mostrar _MENU_ registros por Página',
+	'No he encontrado nada - lo siento','Listado _START_ a _END_ de registros _TOTAL_',
+	'Mostrando 0 a 0 de 0 registros',
+	'(filtrado de _MAX_ registros en total)',
+	'Buscar','Enviar','Cerrar','Agregar Rapid', // 30
+	'Orden','Idioma','Contenido','Cadenas','Etiquetas','Imprimir todos','Administración','Tabla de búsqueda','Buscar','Ver - Ocultar columnas', // 40
+	'Seleccione una fila','Mostrar Número','Ocultar Número','Mostrar imagen','Imagen Ocultar','traduciendo','Cadenas de Idioma','Referencía','Ayuda','ID', // 50
+	'Idm','Tipo','Ord','Valores','Palabras clave','Alternativo','Imagen','Opciones','Valor','Fecha', // 60
+	'Número','Uso','Añadir','Imprimir','Reajustar','Editar','Copiar','Vista Prevía','Borrar','Texto y Código', // 70
+	'Cambiar Colección','Variables comunes','Idioma Especfica','Archivos subidos','Error al subir','Subir Archivo','Nombre archivo','Subir','Actualizar','No hay registros faltantes encontrado', // 80
+	'Aprobado','Encontrado','Mostrar','Traducir','Cambiar cabecera','Error al guardar el registro','Guardar éxito','Precio','Descripción corta','Categoría', // 90
+	'Código','Ttulo','ingls','español','catalán','alemán','Resultados','Que Blog','Tipos de Campo de Cliqon Lite ','Cambiar Registro', // 100
+	'Colección','Registro Eliminado','Error al eliminar Record','Ver Contenido','Agregar registro','Borrar Set','Eliminar elemento','Operador','Consulta','Campo', // 110
+	'Generar','Parmetros de vista','Generador de Informes','Por favor, Complete todos los campos','Eliminar Report','Los informes guardados','Guardar','Seleccione el cuadro','Seleccione Tipo de data','Seleccione Idioma', // 120
+	'Seleccionar campos varios','Sección de agrupación','Ordenar','Dirección','Orden descendente','Orden ascendente','Limite nmero de informes','Imprimir informe agrupados','Imprimir informe ordenado','Organizador de imagenes', // 130
+	'Definición de informe','Resumen','Copiar artículo','Ver artículo','Guardar','Haga clic para editar','Tipo de data','Afinar','Señal','Razón Social', // 140
+	'Razón Fiscal', 'Código', 'Contacto', 'CIF - NIF', 'Dirección', 'Lina 2', 'Barrio', 'Código Postal', 'Población - Ciudad', 'Comunidad', // 150
+	'Pas', 'Telfono', 'Facsimile', 'Mvil', 'Página Web', 'Posición', 'Comentarios', 'Coordenados Mapa', 'Agente', 'Archivo creado con exíto', // 160
+	'Mostrar (s/n)', 'Notas', 'Email', 'GeoCode', 'Coords', 'Región/Población', 'Poblaciones y Comunidades', 'Ubicaciones', 'Agregar Ubicación', 'Cambiar Ubicación', //
+	'Mostrar Mapa', 'Sin Agrupación', 'Buscar por Población', 'Mapa del Sitio', 'Registr del Mapa del Sitio', 'Men Convertido', 'Men Existente', 'Convertir Menú al Mapa del Sitio', '1Item del Menú', 'Explicación', // 180
+	'Puntero a la Página en el sitio web', 'La combinación ya existe!', 'Blog y Noticias', 'Palabras claves', 'Autor', 'Fuente de Noticias', 'De este Fecha', 'Fecha Para', 'Archivar (s/n)', '190', // 190
+	'Dicionario', 'Agregar categoría a nivel superior', 'Información y Ayuda', 'Agregar categoría enferior',  'Cambiar Categoría',  'Elegir Categoría',  'Cambiar palabrass', 'Nombre Completo', 'Utiliza categorias elegido', 'Etiqueta', // 200
+	'Borrar Categorias', 'Seleccionar/Deseleccionar Todo', 'Categoría vieja',	'Descripción', 'Mostrar categoría y palabras ajuntas', 'Eliminar todas las categorias eligidas', 'Utilidades', 'Usuario', 'Registros actualizados con exito', 'Registros agregados con exito', // 210
+	'Registros eliminados con exito', 'Palabras', 'Mostrar', 'Texto', 'Copiar Contenido', 'Eligir Registro', 'Contenido Actualizado por', 'Borrar colección basado en', 'Página', 'Común', // 220
+	'Borrar los datos iniciales y de demonstración', 'Idioma Segunda', 'Vinculos a los recursos externos', 'Documentos enriquiecedos', 'Elementos de Biblioteca', 'Elementos de Notica', 'Eventos de la Agenda', 'Errores y Advertencias', 'Contraseña', 'Texto del Menú', // 230
+	'Mantenir Archivos de Ayuda', 'Aggregar Archivo de Ayuda', 'Cambiar Archivo de Ayuda', 'Borrar Archivo de Ayuda', 'Archivo de Ayuda cargado', 'Error con la carga del Archivo', 'Archivo Eliminado', 'Agregar Idioma', 'Crear nombre de la idioma, Código y señal', 'Eliminar este archivo de ayuda', // 240
+	'Copiar archivo de ayuda', 'Lotería', 'Imagenes Adicionales', 'Cargar de archivo CSV', 'Elegir archivo', 'Utiliza cabeza de CSV', 'Simbolo de separación', 'Simbolo de rodea', 'Simbolo de escape', 'Codificación', //
+	'Archivo cargado con exíto', 'Nombre de archivo cargado', 'Eliminar colección de Mapa del Sitio basado en Registro', 'Informe generado', 'Comentarios Blog', 'Texto Aumentado', 'Sí', 'No', 'Galera de imagenes', 'Error', // 260
+	'Administrador', 'Restrinijia el Acceso s/n', 's/n', 'El Código ya est en uso!', 'Deseleccionado', 'Nombre de Tabla', 'Agrupación', 'Columnas', 'Enlace', 'Exportar - Importar Registros', // 270
+	'Base de Datos', 'Una clausula de WHERE differente', 'Instrucciones adicionales', 'Exportar Registros', 'Importar Registros', 'Ver archivo de importar', 'Registros actualizado con exito', 'Clase', 'Crear Página', 'Enviar Email',  // 280
+	'Email enviado con exito', 'Mensaje', 'Desde', 'A', 'Asunto', 'No est un email valido', 'Punteros', '288', 'Empresa', 'Metdo de Pago', // 290
+	'Nú Fact.', 'Pagado', 'Pedidos', 'Unidades Comprado', 'Fecha de Caducidad', 'Categorias y Palabras', 'Cambiar Empresa', 'Sucursales', 'Contactos', 'Extended', // 300
+	'Pujas', 'Comercialización', 'NIF/NIE', 'Logo', 'Categorias', 'Marcas', 'Calle', 'Mapa (X/Y)', 'Nombre', 'Plantilla',  // 310
+	'Sociedad Dominante', 'Mantenir', 'No se han encontrado registros', 'Horarios', 'Pagos', 'Formato', 'Dirección de Sucursal', 'Dirección de ICQ', 'Tipo de ICQ', 'Código PIN',  // 320
+	'En carga', 'Extensión', 'Men de Comercialización', 'En Uso', 'Fecha de Caducidad', 'Mensajero', 'Jefe', 'Cd. de Cuenta', 'Detalles de la Empresa', 'Fecha de acción', // 330
+	'Tareas e agenda de CRM', 'Completado', 'Tarea', 'Secundara', 'Fecha de finalización', 'La taréa no se puede ser anulado a resulta de la existenca de las secundarias', 'Imprime tareas de CRM', 'Pagado', 'Pedido de Cliente', 'Archivo de transacciones',  // 340
+	'Actividad', 'Enviar SMS', 'Mensaje hizo cola', 'Ajunto', 'Actualizar Banners y Pujas', 'Convertir', 'ms', 'Fecha de Cesións', 'Reputación', 'Mandado por', // 350
+	'Editar Reputación', 'Enlaces especiales', 'Archivo', 'Puja Corriente', 'Mostrar cadenas de administración', 'Registro se existe', 'Crear', 'RegID', 'Copiar Cadena', 'Menú de Utilidades', // 360
+	'Editar Colección', 'Refrescar', 'Editar Contenido', 'ETE', 'Idm', 'Haga clic en encabezado para ordenar', 'Borrar cadenas por idioma', 'Crear cadenas por idioma', 'Salir', '370', // 370
+	'Secciones', 'Enlaces utiles', 'Lista', 'Dashboard', 'Cadenas de Admin.', 'Extra', 'Filtro de Cads. de Admin.', 'Filtro de Cadenas JS', 'Listas', 'Muestra',  // 380
+	'Editar Extra', 'Mirar colección', 'Importar Registros', 'Cambiar tipo', 'Testimonio', 'Administrador de archivos', 'Configuración', 'Padre', 'Revisión', 'URL',  // 390
+	'Dueño', 'Año pasado', 'Año próximo', 'se produjo un error al recuperar los eventos!', 'FAQs', 'Catalógo', 'a cesta', 'Sale', 'desde la cesta', 'Código del producto',  // 400
+	'Cantidad', 'Nombre', 'Apellido 1', 'Apellido 2', 'Dirección email', 'nombre@email.com', 'Entrega', 'Total', 'Total Net', 'Gasto de entrega',  // 410
+	'Imp. de 21% incluido', 'Total a pagar', 'Impuestos totales', 'IVA', 'Cliente', 'Tiempo de entrega', 'IVA', 'Agenda', 'Eventos', '420' // 420
+);

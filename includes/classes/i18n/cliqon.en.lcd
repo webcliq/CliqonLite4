@@ -1,0 +1,50 @@
+<?php
+$lstr = array(
+	'Filter by','All','Page','of','First','Previous','Next','Last','Today','Month','Week', // 10
+	'Day','Display Help','Print Contents','Home','Display Setup','Administration','Login Failed','Quick Edit','Check Missing','Content Edit', // 20
+	'Set Edit',
+	'Display _MENU_ records per page',
+	'Nothing found - sorry','Showing _START_ to _END_ of _TOTAL_ records',
+	'Showing 0 to 0 of 0 records',
+	'(filtered from _MAX_ total records)',
+	'Search','Submit','Close','Quick Add', // 30
+	'Order','Idiom','Content','Strings','Labels','Print All','Ojored Administration','Search table','Find', 'Show - Hide Columns',// 40
+	'Please Select a Row', 'Show Number','Hide Number','Show Image','Hide Image','Translating','Language Strings','Reference','Help','ID', // 50	
+	'Idm','Type','Ord','Values','Keyword','Alternate','Image','Options','Value','Date', // 60
+	'Number','Usage','Add','Print','Reset','Edit','Copy','View','Delete','Text or Code', // 70
+	'Record Set Edit','Common Variables','Language Specific','Files Uploaded','Upload Failed','Upload File','File name','Upload','Update','No missing records found', // 80	 		
+	'Approved','Found','showing','Translate','Edit Header','Error saving the Record','Successful Save','Price','Short Description','Category', // 90	
+	'Stock Code', 'Title', 'English', 'Spanish', 'Catalan', 'German', 'Results', 'Which Blog', 'Cliqon Lite Field Types', 'Edit Record',  // 100
+	'Record Set', 'Record Deleted', 'Error Deleting Record', 'View Content', 'Add Record', 'Delete Set', 'Delete Item', 'Operator', 'Query', 'Field',  // 110
+	'Generate', 'View Parameters', 'Report Generator', 'Please complete all the fields', 'Delete Report', 'Saved Reports', 'Save', 'Select Table', 'Select Table Type', 'Select Language', // 120
+	'Select Multiple Fields', 'Section Grouping', 'Sort Order', 'Direction', 'Descending Order', 'Ascending Order', 'Limit Number of Records', 'Print Grouped Report', 'Print Sortable Report', 'Image Organiser', // 130
+	'Report Definition', 'Summary', 'Copy Item', 'View Item', 'Saving', 'Click to edit', 'Table Type', 'Refine', 'Flag', 'Common Name', // 140
+	'Official Name', 'Code', 'Contact', 'CIF/NIF', 'Address', 'Line 2', 'Suburb', 'Postal Code', 'Town or City', 'Region', // 150
+	'Country', 'Telephone', 'Facsimile', 'Mobile', 'Web Site', 'Status', 'Comments', 'Map Coordinates', 'Agent', 'File created sucessfully', // 160
+	'Display (y/n)', 'Notes', 'Email', 'GeoCode', 'Coords', 'Region/City', 'Towns, Cities and Regions', 'Locations', 'New Location', 'Edit Location', // 170
+	'Display Map', 'No Grouping', 'Search by Town', 'Site Map', 'Site Map Record', 'Menu Entries Converted', 'Existing Menu', 'Convert Menu to Sitemap', 'Menu Item', 'Explanation', // 180
+	'Pointer to page on website', 'Combination already exists', 'News and Blog', 'Keywords', 'Author', 'Newsfeed', 'Date From', 'Date To', 'Archive (y/n)', 'Attributes', // 190
+	'Dictionary', 'Add top level Category', 'Information and Help', 'Add Sub-category',  'Edit Category',  'Select Category',  'Edit Words', 'Full Name', 'Select all Categories Checked', 'Prompt', // 200
+	'Delete Categories', 'Select/Unselect All', 'Old Category',	'Description', 'Display Category and Associated Words', 'Clear All Category Checkboxes', 			'Utilities', 'Username', 'Records Updated OK', 'Records Added OK', // 210
+	'Records Deleted OK', 'Words', 'Display', 'Text', 'Copy Content', 'Select Content Record', 'Updated Content for', 'Delete Set Based on', 'Page Name', 'Common', // 220
+	'Remove Initial Demonstration Data', 'Second Language', 'External Resources Links', 'Rich Text Documents', 'Library Entries', 'News Items', 'Diary Events', 'Errors and Warnings', 'Password', 'Menu Text', // 230
+	'Maintain Help Files', 'Add Help File', 'Edit Help File', 'Delete Help File', 'Help file written', 'Problem deleting File', 'File Deleted', 'Add Language', 'Define Language Name, Code and Button Image', 'Delete this Help File', // 240
+	'Copy Help File', 'Lottery', 'Additional Images', 'CSV Import', 'Please select file', 'Use CSV header', 'Separator character', 'Enclosing character', 'Escape character', 'Encoding', // 250
+	'File Imported Correctly', 'Stored File Name', 'Delete Site Map Set based on Record', 'Generated Report', 'Blog Comments', 'Rich Text', 'Yes', 'No', 'Image Gallery', 'Error', // 260
+	'Administrator', 'Restrict Access y/n', 'y/n', 'This Code already exists', 'Not Set', 'Table Name', 'Grouping', 'Columns', 'Link', 'Export - Import Records', // 270
+	'Database', 'Different WHERE clause', 'Extra Instructions', 'Export Records', 'Import Records', 'View Import File', 'Records successfully imported', 'Class', 'Create Page', 'Send Email',  // 280
+	'Email sent successfully', 'Message', 'From', 'To', 'Subject', 'Not a valid email', 'Banners', 'Set Spare', 'Company', 'Payment Method', // 290
+	'Inv. No.', 'Confirmed', 'Purchase Orders', 'Units Purchased', 'Expiry Date', 'Categories and Words', 'Edit Company', 'Branches', 'Contacts', 'Extended', // 300
+	'Bids', 'Marketing', 'NIF/NIE', 'Logo', 'Categories', 'Brands', 'Street', 'Map (X/Y)', 'Name', 'Background',  // 310
+	'Parent Company', 'Maintain', 'No records found', 'Hours', 'Payments', 'Salutation', 'Branch Address', 'Chat Address', 'Chat Type', 'Pincode',  // 320	 
+	'Position', 'Extention', 'Marketing Menu', 'Enabled', 'Renewal Date', 'Messenger', 'Reports to', 'Account Code', 'Company Details', 'Due Date', // 330
+	'CRM Tasks and Events', 'Completed', 'Task', 'Sub-task', 'Date Completed', 'The Task cannot be deleted as there are uncompleted sub tasks', 'Print CRM Tasks', 'Paid', 'Client Order No.', 'Ojored Log File',  // 340
+	'Activity', 'Send SMS', 'Message Queued', 'Attachment', 'Update Banners and Bids', 'Convert', 'more', 'Closing Date', 'Reputation', 'Reported by', // 350
+	'Edit Reputation', 'Special Links', 'File', 'Current Bid', 'Display Administration Strings', 'Record Exists', 'Create', 'RecID', 'Copy String', 'Utilities Menu', // 360
+	'Edit Collection', 'Refresh', 'Edit Content', 'RTE', 'Idm', 'Click Header to Sort', 'Delete Strings by Language', 'Create Strings by Language', 'Logout', 'Menu', // 370
+	'Sections', 'Useful Links', 'List', 'Dashboard', 'Admin Strings', 'Extra', 'Filter admin strings', 'Filter jScript strings', 'Lists', 'Spare',  // 380
+	'Edit Extra', 'View Set', 'Import Records', 'Change Type', 'Testimonial', 'File Manager', 'Configuration', 'Parent', 'Revision', 'URL',  // 390
+	'Owner', 'Previous Year', 'Next Year', 'there was an error while fetching events!', 'FAQs', 'Catalogue', 'to cart', 'Remove', 'from the cart', 'Product Code',  // 400
+	'Quantity',  'First name', 'Middle name', 'Surname', 'Email Address', 'name@email.com', 'Delivery', 'Total', 'Total Net', 'Delivery Charge',  // 410
+	'Tax of 21% included', 'Total to Pay', 'Total Tax', 'VAT', 'Customer', 'Delivery time', 'Tax', 'Calendar', 'Events', '420' // 420
+);

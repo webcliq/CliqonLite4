@@ -1,0 +1,786 @@
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
+audio, canvas, video {
+    display: inline-block;
+}
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+[hidden] {
+    display: none;
+}
+html {
+    font-size: 100%;
+}
+html, button, input, select, textarea {
+    font-family: sans-serif;
+}
+body {
+    margin: 0;
+}
+a:focus {
+    outline: thin dotted;
+}
+a:active, a:hover {
+    outline: 0 none;
+}
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+b, strong {
+    font-weight: 700;
+}
+blockquote {
+    margin: 1em 40px;
+}
+dfn {
+    font-style: italic;
+}
+hr {
+    box-sizing: content-box;
+    height: 0;
+}
+mark {
+    background: none repeat scroll 0 0 #ff0;
+    color: #000;
+}
+p, pre {
+    margin: 1em 0;
+}
+code, kbd, pre, samp {
+    font-family: monospace,serif;
+    font-size: 1em;
+}
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+q {
+    quotes: none;
+}
+q:before, q:after {
+    content: none;
+}
+small {
+    font-size: 80%;
+}
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+dl, menu, ol, ul {
+    margin: 1em 0;
+}
+dd {
+    margin: 0 0 0 40px;
+}
+menu, ol, ul {
+    padding: 0 0 0 40px;
+}
+nav ul, nav ol {
+    list-style: none outside none;
+}
+img {
+    border: 0 none;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+figure {
+    margin: 0;
+}
+form {
+    margin: 0;
+}
+fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+legend {
+    border: 0 none;
+    padding: 0;
+    white-space: normal;
+}
+button, input, select, textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+}
+button, input {
+    line-height: normal;
+}
+button, select {
+    text-transform: none;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+}
+button[disabled], html input[disabled] {
+    cursor: default;
+}
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+input[type="search"] {
+    box-sizing: content-box;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0 none;
+    padding: 0;
+}
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+[hidden] {
+    display: none !important;
+}
+.clqimg {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+.clqg {
+    font-family: FreeSans,Arimo,"Droid Sans",Helvetica,Arial,sans-serif;
+    letter-spacing: -0.31em;
+    text-rendering: optimizespeed;
+}
+.clqu {
+    display: inline-block;
+    letter-spacing: normal;
+    text-rendering: auto;
+    vertical-align: top;
+    word-spacing: normal;
+}
+.clqg [class*="clqu"] {
+    font-family: sans-serif;
+}
+.clqu-1, .clqu-1-1, .clqu-1-2, .clqu-1-3, .clqu-2-3, .clqu-1-4, .clqu-3-4, .clqu-1-5, .clqu-2-5, .clqu-3-5, .clqu-4-5, .clqu-5-5, .clqu-1-6, .clqu-5-6, .clqu-1-8, .clqu-3-8, .clqu-5-8, .clqu-7-8, .clqu-1-12, .clqu-5-12, .clqu-7-12, .clqu-11-12, .clqu-1-24, .clqu-2-24, .clqu-3-24, .clqu-4-24, .clqu-5-24, .clqu-6-24, .clqu-7-24, .clqu-8-24, .clqu-9-24, .clqu-10-24, .clqu-11-24, .clqu-12-24, .clqu-13-24, .clqu-14-24, .clqu-15-24, .clqu-16-24, .clqu-17-24, .clqu-18-24, .clqu-19-24, .clqu-20-24, .clqu-21-24, .clqu-22-24, .clqu-23-24, .clqu-24-24 {
+    display: inline-block;
+    letter-spacing: normal;
+    text-rendering: auto;
+    vertical-align: top;
+    word-spacing: normal;
+}
+.clqu-1-24 {
+    width: 4.1667%;
+}
+.clqu-1-12, .clqu-2-24 {
+    width: 8.3333%;
+}
+.clqu-1-8, .clqu-3-24 {
+    width: 12.5%;
+}
+.clqu-1-6, .clqu-4-24 {
+    width: 16.6667%;
+}
+.clqu-1-5 {
+    width: 20%;
+}
+.clqu-5-24 {
+    width: 20.8333%;
+}
+.clqu-1-4, .clqu-6-24 {
+    width: 25%;
+}
+.clqu-7-24 {
+    width: 29.1667%;
+}
+.clqu-1-3, .clqu-8-24 {
+    width: 33.3333%;
+}
+.clqu-3-8, .clqu-9-24 {
+    width: 37.5%;
+}
+.clqu-2-5 {
+    width: 40%;
+}
+.clqu-5-12, .clqu-10-24 {
+    width: 41.6667%;
+}
+.clqu-11-24 {
+    width: 45.8333%;
+}
+.clqu-1-2, .clqu-12-24 {
+    width: 50%;
+}
+.clqu-13-24 {
+    width: 54.1667%;
+}
+.clqu-7-12, .clqu-14-24 {
+    width: 58.3333%;
+}
+.clqu-3-5 {
+    width: 60%;
+}
+.clqu-5-8, .clqu-15-24 {
+    width: 62.5%;
+}
+.clqu-2-3, .clqu-16-24 {
+    width: 66.6667%;
+}
+.clqu-17-24 {
+    width: 70.8333%;
+}
+.clqu-3-4, .clqu-18-24 {
+    width: 75%;
+}
+.clqu-19-24 {
+    width: 79.1667%;
+}
+.clqu-4-5 {
+    width: 80%;
+}
+.clqu-5-6, .clqu-20-24 {
+    width: 83.3333%;
+}
+.clqu-7-8, .clqu-21-24 {
+    width: 87.5%;
+}
+.clqu-11-12, .clqu-22-24 {
+    width: 91.6667%;
+}
+.clqu-23-24 {
+    width: 95.8333%;
+}
+.clqu-1, .clqu-1-1, .clqu-5-5, .clqu-24-24 {
+    width: 100%;
+}
+.clqbutton {
+    -moz-user-select: none;
+    cursor: pointer;
+    display: inline-block;
+    line-height: normal;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+.clqbutton::-moz-focus-inner {
+    border: 0 none;
+    padding: 0;
+}
+.clqbutton {
+    background-color: #e6e6e6;
+    border: 0 none rgba(0, 0, 0, 0);
+    border-radius: 2px;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0.5em 1em;
+    text-decoration: none;
+}
+.clqbutton-hover, .clqbutton:hover, .clqbutton:focus {
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+.clqbutton:focus {
+    outline: 0 none;
+}
+.clqbutton-active, .clqbutton:active {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+.clqbutton[disabled], .clqbutton-disabled, .clqbutton-disabled:hover, .clqbutton-disabled:focus, .clqbutton-disabled:active {
+    background-image: none;
+    border: 0 none;
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+.clqbutton-hidden {
+    display: none;
+}
+.clqbutton::-moz-focus-inner {
+    border: 0 none;
+    padding: 0;
+}
+.clqbutton-primary, .clqbutton-selected, a.clqbutton-primary, a.clqbutton-selected {
+    background-color: #0078e7;
+    color: #fff;
+}
+.clqform input[type="text"], .clqform input[type="password"], .clqform input[type="email"], .clqform input[type="url"], .clqform input[type="date"], .clqform input[type="month"], .clqform input[type="time"], .clqform input[type="datetime"], .clqform input[type="datetime-local"], .clqform input[type="week"], .clqform input[type="number"], .clqform input[type="search"], .clqform input[type="tel"], .clqform input[type="color"], .clqform select, .clqform textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px #ddd inset;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 0.5em 0.6em;
+}
+.clqform input:not([type]) {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px #ddd inset;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 0.5em 0.6em;
+}
+.clqform input[type="color"] {
+    padding: 0.2em 0.5em;
+}
+.clqform input[type="text"]:focus, .clqform input[type="password"]:focus, .clqform input[type="email"]:focus, .clqform input[type="url"]:focus, .clqform input[type="date"]:focus, .clqform input[type="month"]:focus, .clqform input[type="time"]:focus, .clqform input[type="datetime"]:focus, .clqform input[type="datetime-local"]:focus, .clqform input[type="week"]:focus, .clqform input[type="number"]:focus, .clqform input[type="search"]:focus, .clqform input[type="tel"]:focus, .clqform input[type="color"]:focus, .clqform select:focus, .clqform textarea:focus {
+    border-color: #129fea;
+    outline: 0 none;
+}
+.clqform input:focus:not([type]) {
+    border-color: #129fea;
+    outline: 0 none;
+}
+.clqform input[type="file"]:focus, .clqform input[type="radio"]:focus, .clqform input[type="checkbox"]:focus {
+    outline: 1px auto #129fea;
+}
+.clqform .clqcheckbox, .clqform .clqradio {
+    display: block;
+    margin: 0.5em 0;
+}
+.clqform input[type="text"][disabled], .clqform input[type="password"][disabled], .clqform input[type="email"][disabled], .clqform input[type="url"][disabled], .clqform input[type="date"][disabled], .clqform input[type="month"][disabled], .clqform input[type="time"][disabled], .clqform input[type="datetime"][disabled], .clqform input[type="datetime-local"][disabled], .clqform input[type="week"][disabled], .clqform input[type="number"][disabled], .clqform input[type="search"][disabled], .clqform input[type="tel"][disabled], .clqform input[type="color"][disabled], .clqform select[disabled], .clqform textarea[disabled] {
+    background-color: #eaeded;
+    color: #cad2d3;
+    cursor: not-allowed;
+}
+.clqform input[disabled]:not([type]) {
+    background-color: #eaeded;
+    color: #cad2d3;
+    cursor: not-allowed;
+}
+.clqform input[readonly], .clqform select[readonly], .clqform textarea[readonly] {
+    background: none repeat scroll 0 0 #eee;
+    border-color: #ccc;
+    color: #777;
+}
+.clqform input:focus:invalid, .clqform textarea:focus:invalid, .clqform select:focus:invalid {
+    border-color: #ee5f5b;
+    color: #b94a48;
+}
+.clqform input:focus:invalid:focus, .clqform textarea:focus:invalid:focus, .clqform select:focus:invalid:focus {
+    border-color: #e9322d;
+}
+.clqform input[type="file"]:focus:invalid:focus, .clqform input[type="radio"]:focus:invalid:focus, .clqform input[type="checkbox"]:focus:invalid:focus {
+    outline-color: #e9322d;
+}
+.clqform select {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.clqform select[multiple] {
+    height: auto;
+}
+.clqform label {
+    margin: 0.5em 0 0.2em;
+}
+.clqform fieldset {
+    border: 0 none;
+    margin: 0;
+    padding: 0.35em 0 0.75em;
+}
+.clqform legend {
+    border-bottom: 1px solid #e5e5e5;
+    color: #333;
+    display: block;
+    margin-bottom: 0.3em;
+    padding: 0.3em 0;
+    width: 100%;
+}
+.clqform-stacked input[type="text"], .clqform-stacked input[type="password"], .clqform-stacked input[type="email"], .clqform-stacked input[type="url"], .clqform-stacked input[type="date"], .clqform-stacked input[type="month"], .clqform-stacked input[type="time"], .clqform-stacked input[type="datetime"], .clqform-stacked input[type="datetime-local"], .clqform-stacked input[type="week"], .clqform-stacked input[type="number"], .clqform-stacked input[type="search"], .clqform-stacked input[type="tel"], .clqform-stacked input[type="color"], .clqform-stacked select, .clqform-stacked label, .clqform-stacked textarea {
+    display: block;
+    margin: 0.25em 0;
+}
+.clqform-stacked input:not([type]) {
+    display: block;
+    margin: 0.25em 0;
+}
+.clqform-aligned input, .clqform-aligned textarea, .clqform-aligned select, .clqform-aligned .clqhelp-inline, .clqform-message-inline {
+    display: inline-block;
+    vertical-align: middle;
+}
+.clqform-aligned textarea {
+    vertical-align: top;
+}
+.clqform-aligned .clqcontrol-group {
+    margin-bottom: 0.5em;
+}
+.clqform-aligned .clqcontrol-group label {
+    display: inline-block;
+    margin: 0 1em 0 0;
+    text-align: right;
+    vertical-align: middle;
+    width: 10em;
+}
+.clqform-aligned .clqcontrols {
+    margin: 1.5em 0 0 10em;
+}
+.clqform input.clqinput-rounded, .clqform .clqinput-rounded {
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+.clqform .clqgroup fieldset {
+    margin-bottom: 10px;
+}
+.clqform .clqgroup input {
+    border-radius: 0;
+    display: block;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    top: -1px;
+}
+.clqform .clqgroup input:focus {
+    z-index: 2;
+}
+.clqform .clqgroup input:first-child {
+    border-radius: 4px 4px 0 0;
+    top: 1px;
+}
+.clqform .clqgroup input:last-child {
+    border-radius: 0 0 4px 4px;
+    top: -2px;
+}
+.clqform .clqgroup button {
+    margin: 0.35em 0;
+}
+.clqform .clqinput-1 {
+    width: 100%;
+}
+.clqform .clqinput-2-3 {
+    width: 66%;
+}
+.clqform .clqinput-1-2 {
+    width: 50%;
+}
+.clqform .clqinput-1-3 {
+    width: 33%;
+}
+.clqform .clqinput-1-4 {
+    width: 25%;
+}
+.clqform .clqhelp-inline, .clqform-message-inline {
+    color: #666;
+    display: inline-block;
+    font-size: 0.875em;
+    padding-left: 0.3em;
+    vertical-align: middle;
+}
+.clqform-message {
+    color: #666;
+    display: block;
+    font-size: 0.875em;
+}
+@media only screen and (max-width: 480px) {
+.clqform button[type="submit"] {
+    margin: 0.7em 0 0;
+}
+.clqform input:not([type]), .clqform input[type="text"], .clqform input[type="password"], .clqform input[type="email"], .clqform input[type="url"], .clqform input[type="date"], .clqform input[type="month"], .clqform input[type="time"], .clqform input[type="datetime"], .clqform input[type="datetime-local"], .clqform input[type="week"], .clqform input[type="number"], .clqform input[type="search"], .clqform input[type="tel"], .clqform input[type="color"], .clqform label {
+    display: block;
+    margin-bottom: 0.3em;
+}
+.clqgroup input:not([type]), .clqgroup input[type="text"], .clqgroup input[type="password"], .clqgroup input[type="email"], .clqgroup input[type="url"], .clqgroup input[type="date"], .clqgroup input[type="month"], .clqgroup input[type="time"], .clqgroup input[type="datetime"], .clqgroup input[type="datetime-local"], .clqgroup input[type="week"], .clqgroup input[type="number"], .clqgroup input[type="search"], .clqgroup input[type="tel"], .clqgroup input[type="color"] {
+    margin-bottom: 0;
+}
+.clqform-aligned .clqcontrol-group label {
+    display: block;
+    margin-bottom: 0.3em;
+    text-align: left;
+    width: 100%;
+}
+.clqform-aligned .clqcontrols {
+    margin: 1.5em 0 0;
+}
+.clqform .clqhelp-inline, .clqform-message-inline, .clqform-message {
+    display: block;
+    font-size: 0.75em;
+    padding: 0.2em 0 0.8em;
+}
+}
+.clqmenu ul {
+    position: absolute;
+    visibility: hidden;
+}
+.clqmenu.clqmenu-open {
+    visibility: visible;
+    width: 100%;
+    z-index: 2;
+}
+.clqmenu ul {
+    left: -10000px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    top: -10000px;
+    z-index: 1;
+}
+.clqmenu > ul {
+    position: relative;
+}
+.clqmenu-open > ul {
+    left: 0;
+    top: 0;
+    visibility: visible;
+}
+.clqmenu-open > ul:focus {
+    outline: 0 none;
+}
+.clqmenu li {
+    position: relative;
+}
+.clqmenu a, .clqmenu .clqmenu-heading {
+    color: inherit;
+    display: block;
+    line-height: 1.5em;
+    padding: 5px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.clqmenu.clqmenu-horizontal > .clqmenu-heading {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+.clqmenu.clqmenu-horizontal > ul {
+    display: inline-block;
+    vertical-align: middle;
+}
+.clqmenu li a {
+    padding: 5px 20px;
+}
+.clqmenu-can-have-children > .clqmenu-label:after {
+    content: "▸";
+    float: right;
+    font-family: 'Lucida Grande','Lucida Sans Unicode','DejaVu Sans',sans-serif;
+    margin-right: -20px;
+    margin-top: -1px;
+}
+.clqmenu-can-have-children > .clqmenu-label {
+    padding-right: 30px;
+}
+.clqmenu-separator {
+    background-color: #dfdfdf;
+    display: block;
+    font-size: 0;
+    height: 1px;
+    margin: 7px 2px;
+    overflow: hidden;
+}
+.clqmenu-hidden {
+    display: none;
+}
+.clqmenu-fixed {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.clqmenu-horizontal li {
+    display: inline-block;
+    vertical-align: middle;
+}
+.clqmenu-horizontal li li {
+    display: block;
+}
+.clqmenu-horizontal > .clqmenu-children > .clqmenu-can-have-children > .clqmenu-label:after {
+    content: "▾";
+}
+.clqmenu-horizontal > .clqmenu-children > .clqmenu-can-have-children > .clqmenu-label {
+    padding-right: 30px;
+}
+.clqmenu-horizontal li.clqmenu-separator {
+    height: 50%;
+    margin: 0 7px;
+    width: 1px;
+}
+.clqmenu-horizontal li li.clqmenu-separator {
+    height: 1px;
+    margin: 7px 2px;
+    width: auto;
+}
+.clqmenu.clqmenu-open, .clqmenu.clqmenu-horizontal li .clqmenu-children {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #b7b7b7;
+}
+.clqmenu.clqmenu-horizontal, .clqmenu.clqmenu-horizontal .clqmenu-heading {
+    border: 0 none;
+}
+.clqmenu a {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: transparent -moz-use-text-color;
+    border-image: none;
+    border-style: solid none;
+    border-width: 1px 0;
+}
+.clqmenu a, .clqmenu .clqmenu-can-have-children > li:after {
+    color: #777;
+}
+.clqmenu .clqmenu-can-have-children > li:hover:after {
+    color: #fff;
+}
+.clqmenu .clqmenu-open {
+    background: none repeat scroll 0 0 #dedede;
+}
+.clqmenu li a:hover, .clqmenu li a:focus {
+    background: none repeat scroll 0 0 #eee;
+}
+.clqmenu li.clqmenu-disabled a:hover, .clqmenu li.clqmenu-disabled a:focus {
+    background: none repeat scroll 0 0 #fff;
+    color: #bfbfbf;
+}
+.clqmenu .clqmenu-disabled > a {
+    background-image: none;
+    border-color: transparent;
+    cursor: default;
+}
+.clqmenu .clqmenu-disabled > a, .clqmenu .clqmenu-can-have-children.clqmenu-disabled > a:after {
+    color: #bfbfbf;
+}
+.clqmenu .clqmenu-heading {
+    border-bottom: 1px solid #dfdfdf;
+    color: #565d64;
+    font-size: 90%;
+    margin-top: 0.5em;
+    text-transform: uppercase;
+}
+.clqmenu .clqmenu-selected a {
+    color: #000;
+}
+.clqmenu.clqmenu-open.clqmenu-fixed {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color -moz-use-text-color #b7b7b7;
+    border-image: none;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+}
+.clqpaginator {
+    letter-spacing: -0.31em;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    text-rendering: optimizespeed;
+}
+.clqpaginator li {
+    display: inline-block;
+    letter-spacing: normal;
+    text-rendering: auto;
+    vertical-align: top;
+    word-spacing: normal;
+}
+.clqpaginator .clqbutton {
+    border-radius: 0;
+    height: 1.1em;
+    padding: 0.8em 1.4em;
+    vertical-align: top;
+}
+.clqpaginator .clqbutton:focus, .clqpaginator .clqbutton:active {
+    outline-style: none;
+}
+.clqpaginator .prev, .clqpaginator .next {
+    color: #c0c1c3;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.45);
+}
+.clqpaginator .prev {
+    border-radius: 2px 0 0 2px;
+}
+.clqpaginator .next {
+    border-radius: 0 2px 2px 0;
+}
+@media (max-width: 480px) {
+.clqmenu-horizontal {
+    width: 100%;
+}
+.clqmenu-children li {
+    border-bottom: 1px solid #000;
+    display: block;
+}
+}
+.clqtable {
+    border: 1px solid #cbcbcb;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+}
+.clqtable caption {
+    color: #000;
+    font: italic 85%/1 arial,sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+.clqtable td, .clqtable th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: 0.5em 1em;
+}
+.clqtable td:first-child, .clqtable th:first-child {
+    border-left-width: 0;
+}
+.clqtable thead {
+    background: none repeat scroll 0 0 #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+.clqtable td {
+    background-color: transparent;
+}
+.clqtable-odd td {
+    background-color: #f2f2f2;
+}
+.clqtable-striped tr:nth-child(2n-1) td {
+    background-color: #f2f2f2;
+}
+.clqtable-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+.clqtable-bordered tbody > tr:last-child td, .clqtable-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+.clqtable-horizontal td, .clqtable-horizontal th {
+    border-bottom: 1px solid #cbcbcb;
+    border-width: 0 0 1px;
+}
+.clqtable-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
