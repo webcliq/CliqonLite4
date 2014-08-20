@@ -1,0 +1,120 @@
+﻿<?php
+// Web site specific configuration file
+$db = array(
+    'dbtype' 					=> '{dbtype}',
+    'server' 					=> '{server}',
+    'db' 						=> '{db}',
+    'user' 						=> '{user}',
+    'password' 					=> '{password}',
+    'port' 						=> '{portno}',
+    'test' 						=> false, 	// Debug true or false
+);
+        
+$cfg = array(
+    
+    'site.idiom' 				=> array('{idiom_array}'), 	// 'en' => 'English', 'es' => 'Español'
+    'site.idiomflags' 			=> array('flags_array'),	// 'en' => 'en.png', 'es' => 'es.png'
+    'site.url' 					=> $_SERVER['SERVER_NAME'],
+    'site.dir' 					=> '', 						// Directory on Server for elfinder
+    'site.timezone' 			=> 'Europe/Madrid',
+    'site.dateformat' 			=> 'd-M-Y',
+    'site.numberformat' 		=> '2|,|.|| €', 			// Used by numbers - dec places, dec sep, thousands sep '2|,|.'
+	'site.title' 				=> 'Cliqon',
+	'site.author' 				=> 'Webcliq',
+	'site.favicon' 				=> 'cliqon.ico',
+	'site.email' 				=> 'info@cliqonlite.com',
+	'site.logo' 				=> 'cliqon_logo.jpg',
+	'site.admlogourl' 			=> '?langcd={lcd}&page=admin&subpage=dashboard&uid={adminuser}',
+	'site.subhead' 				=>	'Web Development System',
+	'site.metaclassification' 	=> 'general',
+	'site.metadescription' 		=> 'Cliqon Web Development System',
+	'site.metakeywords'			=> 'internet',
+
+	'site.defaultpage' 			=> 'index',
+	'site.clqtpl' 		=> array(
+		"base_url"      		=> null,
+		"tpl_ext"				=> "tpl",
+		"tpl_dir"       		=> "views/",
+		"cache_dir"     		=> "cache/",
+		"debug"         		=> false, 			// set to false to improve the speed
+						),
+	'site.admclqtpl' 	=> array(
+		"base_url"      		=> null,
+		"tpl_ext"				=> "tpl",
+		"tpl_dir"       		=> "admin/",
+		"cache_dir"     		=> "cache/",
+		"debug"         		=> false, 			// set to false to improve the speed
+	),
+	'site.server' 				=> 'Apache',
+	'site.stylesheetpath' 		=> 'views/theme/',
+	'site.stylesheet' 			=> 'style.css',
+	'site.iconpath' 			=> 'views/icons/',
+	'site.imgpath' 				=> 'views/images/',
+
+	'site.permissions' 			=> false,			// Use User permissions system to control access to pages
+	'site.autoload' 			=> true,			// Use Autoload (or list of individual )
+	'site.minify' 				=> false,			// Use PHP minify function
+	'site.rbphar' 				=> false,			// Use Rb.Phar as opposed to Rb.Class.Php
+	'site.cdn' 					=> true,			// use CDN for js and css files - used in clqutil Class - 
+	'site.cdnlocn' 				=> 'http://cdn.webcliq.net/files/clqlite/js/',			// If site.cdn == true, URL of CDN location
+	'site.test' 				=> true,			// Use Diagnostics popup function
+
+	'site.users' 	=> array(		
+		'{adminuser}' => array('password' => '{adminpassword}', 'fullname' => 'Administrator', 'masteridm' => 'en'),			
+					),
+
+	'site.defaultcss' 			=> 'style.css',
+	'site.jspath' 				=> 'includes/js/', 	// After rootpath
+	'site.texteditor' 			=> 'ckeditor', 		// tinymce or ckeditor
+	
+	'site.clq_title'			=> '',
+	'site.bingkey'				=> '',
+	
+	// Mail Configuration
+
+	// Webcliq.Net
+	'mail.host'					=> '',
+	'mail.port'					=> 25,
+	'mail.username'				=> '',
+	'mail.password'				=> '', //
+
+	// ElasticEmail
+    'mail.uid'					=> '',
+    'mail.pwd'					=> '',
+
+	'mail.from' 				=> 'webmaster@cliqonlite.com',
+	'mail.from_name'			=> 'Webcliq',
+	'mail.status'				=> 'test',	// test or production
+	'mail.to'					=> '', 
+	'mail.to_name'				=> '',
+	'mail.xto'					=> '',
+	'mail.xto_name'				=> '',
+	'mail.cc'					=> '',
+	'mail.cc_name'				=> '',
+    
+    
+);
+
+/**
+ * @var string Microsoft/Bing Primary Account Key
+ */
+if (!defined('ACCOUNT_KEY')) {
+    define('ACCOUNT_KEY', 'Primary Account Key');
+}
+if (!defined('CACHE_DIRECTORY')) {
+    define('CACHE_DIRECTORY', $rootpath.'cache/translate/');
+}
+if (!defined('LANG_CACHE_FILE')) {
+    define('LANG_CACHE_FILE', 'lang.cache');
+}
+if (!defined('ENABLE_CACHE')) {
+    define('ENABLE_CACHE', false);
+}
+if (!defined('UNEXPECTED_ERROR')) {
+    define('UNEXPECTED_ERROR', 'There is some un expected error . please check the code');
+}
+if (!defined('MISSING_ERROR')) {
+    define('MISSING_ERROR', 'Missing Required Parameters ( Language or Text) in Request');
+}
+
+?>

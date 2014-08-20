@@ -1,0 +1,23 @@
+/* Website template by freewebsitetemplates.com */
+/*------------------------- Sidebar ------------------------*/
+.sidebar a#logo {
+	margin: 45px auto 65px;
+}
+/*------------------------- Body ------------------------*/
+.body div.blog div.blog div div:first-child {
+	margin:-63px 0 0;
+}
+.body div.blog div div:first-child p {
+	height:41px;
+}
+.body div.blog div div:first-child p a, .body div.blog div div:first-child p span {
+	width:auto;
+	text-indent:0;
+	padding:0;
+}
+.body div.sidebar {
+	padding: 0 0 99px;
+}
+.body div.blog div {
+	min-height: 519px;
+}

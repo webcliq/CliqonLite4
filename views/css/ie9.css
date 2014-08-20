@@ -1,0 +1,8 @@
+/* Website template by freewebsitetemplates.com */
+/*------------------------- Body ------------------------*/
+.body div div div.first div a, .body div div div div a {
+	background:url(../images/icons.png) no-repeat 75px -185px;
+}
+.body div.sidebar {
+	padding: 0 0 79px;
+}
