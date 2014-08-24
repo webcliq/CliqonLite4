@@ -151,8 +151,10 @@ var jlcd = "en";
 	/**
 	* Populates the right hand side of a Tree or Table
 	*/
-	function dataTableTitle(table, type) {
+	function adminTitle(table, type, admintype) {
 		
+		store.set('admintype', admintype);
+
 		var title = '<div class="mr20">';
 		title += '<div class="left cc">' + type + '</div>';
 		title += '<div class="txtright right">';
@@ -205,9 +207,11 @@ var jlcd = "en";
 		}).on('toolbarItemClick', function(event, clicked) {
 			toolBarMenu(this, clicked);
 		});	
-
 	}
 
+	/**
+	* Functions for the Report Generator
+	*/
 	function repgenFunctions() {
 		// Button Toolbar for Context Menu
 		$('.repgenitem').toolbar({
@@ -217,6 +221,9 @@ var jlcd = "en";
 		});	
 	}
 
+	/**
+	* Functions for the Gallery
+	*/
 	function galleryFunctions() {
 		// Button Toolbar for Context Menu
 		$('.imgbutton').toolbar({
@@ -244,19 +251,55 @@ var jlcd = "en";
 		});
 	}
 
-/************************  Forms functions  *******************************************************/
+/************************  Tree and Table Toolbar  ************************************************/
 
-	function topButtons(action, table, type, e) {					
-		switch(action) {
-			case 'add': publishForm('addrecord', table, type, 0, e); break;
-			case 'reset': reSet(e, table, type); break;
-			case 'utilities': utilities(e, table, type); break;
-			case "clearcache": clearCache(); break;
-			default: case 'adminhelp': displayAdminHelp(e, table, type); break;
-			case 'print': printType(e, table, type); break;
-		}
+	function clqBar(ref, pos, width, table, type) {
+	    
+	    /*
+	        ref = collection reference
+	        pos = position of calling span
+	    */
+
+	    console.log(ref);
+
+	    // Setup a Tollbar for this item
+
+
+		var div = document.getElementById('admintoolbar'),
+		    clone = div.cloneNode(true); // true means clone all childNodes and all event handlers
+		clone.id = "thistoolbar";
+		document.body.appendChild(clone);
+
+        $('#thistoolbar')
+            .wrap('<div id="itemtoolbar" class="tool-container gradient tool-rounded bottom" />')
+            .wrap('<div class="tool-items" />')
+            .removeClass('hide')
+            .addClass('show');
+
+        $('.tool-items a').addClass('tool-item').addClass('gradient');
+
+	    // Position the toolbar, display it and set 
+	    $('#itemtoolbar').css({
+	        position: "absolute",
+	        top: pos.top + "px",
+	        left: (pos.left + (width + 30)) + "px"
+	    });
+
+		$('.tool-item').data({'ref':ref, 'table': table, 'type': type});
+
+		$('.tool-item').on('click', function(e) {
+			e.stopPropagation; e.stopImmediatePropagation;
+			var action = $(this).attr('rel');
+			toolbarAction(this, action, table, type);
+	    	$('#itemtoolbar').remove();
+	    })
+
+		$('.tool-item:not').on('click', function() {
+			$('#itemtoolbar').remove();
+		})
+
 		return false;
-	}
+	};	
 
 	function toolBarMenu(btn, clicked) {
 
@@ -266,7 +309,13 @@ var jlcd = "en";
 		var type = $(btn).data('type');
 
 		console.log(action, table, type);
+		toolbarAction(btn, action, table, type);
 
+		return false;
+	}
+
+	function toolbarAction(btn, action, table, type) {
+		
 		// Some choices
 		if( isset( $(btn).data('ref') ) ) {var ref = $(btn).data('ref');}; // maybe one or the other .......
 		if( isset( $(btn).data('id') ) ) {var recid = $(btn).data('id');}; //
@@ -291,6 +340,20 @@ var jlcd = "en";
 			case 'deleteimg': publishDelete(table, type, thisimg); break;
 
 			default: alert('Toolbar not defined'); break;	
+		}
+		return false;	
+	}
+
+/************************  Forms functions  *******************************************************/
+
+	function topButtons(action, table, type, e) {					
+		switch(action) {
+			case 'add': publishForm('addrecord', table, type, 0, e); break;
+			case 'reset': reSet(e, table, type); break;
+			case 'utilities': utilities(e, table, type); break;
+			case "clearcache": clearCache(); break;
+			default: case 'adminhelp': displayAdminHelp(e, table, type); break;
+			case 'print': printType(e, table, type); break;
 		}
 		return false;
 	}
@@ -395,6 +458,7 @@ var jlcd = "en";
 	// Form Shared functions
 	function formButtons(table, type, formname, vex, dp) {
 
+		var admintype = store.get('admintype');
 		var btns = [   	
 		    $.extend({}, vex.dialog.buttons.NO, {text: lstr[17], className: 'vex-dialog-button-default', click: function($vexContent, e) {
 				$vexContent.data().vex.value = 'reset'; vex.close($vexContent.data().vex.id);
@@ -410,10 +474,23 @@ var jlcd = "en";
 					$.post(urlstr, $('#' + formname).serialize(), function(msg) { // formHash ??
 						console.log(msg);
 						if(msg !== "") {
+							
 							// Refresh the Table or Tree etc.
-							$$("dtable").load("/includes/get.php?action=getdataset&table=" + table + "&tabletype=" + type + "&langcd=" + store.get('clq_langcd'), "json");
+							switch(admintype) {
+
+								case "dtable": default:
+									$$("dtable").load("/includes/get.php?action=getdataset&table=" + table + "&tabletype=" + type + "&langcd=" + store.get('clq_langcd'), "json");
+								break;
+
+								case "dtree":
+									$$("dtree").clearAll();
+									$$("dtree").load("/includes/get.php?action=gettreeset&table=" + table + "&tabletype=" + type + "&langcd=" + store.get('clq_langcd'), "json");
+								break;
+							}
+
 							var n = noty({'text': lstr[10], 'layout': 'topCenter', 'type': 'success'});
 							vex.close($vexContent.data().vex.id);
+
 							dp = false;
 						} else {
 							var n = noty({'text': lstr[21], 'layout': 'topCenter', 'type': 'error'});
@@ -566,7 +643,6 @@ var jlcd = "en";
 			// data-dir, data-extns
 			uploadFilesForm();
 		})
-
 	}
 
 	function previewButton(frm) {

@@ -6,7 +6,7 @@
 class clq {
 	  
 	 public$thisclass="clq";
-	 public$db, $lcd, $browser, $os, $ip, $rootpath, $icnpath, $sitepath; 
+	 public $lcd, $browser, $os, $ip, $rootpath, $icnpath, $sitepath, $dhtmlxpath; 
 	 public$qrepl=array();
 	 public$qwith=array();
 	 public$cfg=array();
@@ -21,7 +21,8 @@ class clq {
 	function __construct(){
 
 		global $rootpath; $this->rootpath = $rootpath; self::__set('rootpath',$this->rootpath); 
-		global $sitepath; if(!$sitepath) {$this->sitepath = $_SESSION['CLQ_Sitepath'];} else {$this->sitepath = $sitepath;}; self::__set('sitepath',$this->sitepath);
+		global $sitepath; if(!$sitepath) {$this->sitepath = $_SESSION['CLQ_Sitepath'];} else {$this->sitepath = $sitepath;}; 
+    self::__set('sitepath',$this->sitepath);
 		global $lcd; if(!$lcd) {$this->lcd = $_SESSION['CLQ_Langcd'];} else {$this->lcd = $lcd;}; self::__set('lcd',$this->lcd);
 		
 		global $cfg; if(!$cfg) {
@@ -59,6 +60,7 @@ class clq {
 			$this->cfg[$key] = $value; // This has the effect of globally overwriting any configured value with a value from the database
 			$_SESSION['CLQ_Config'][$key] = $value;
 		}
+
 	}
 
 	function __set($key,$val){$this->properties[$key]=$val;}
@@ -154,9 +156,9 @@ class clq {
             $vals = array($_SESSION['CLQ_Langcd'], $ref, "config");
             $row = R::findOne("clqstring",' clq_langcd = ? AND clq_reference = ? AND clq_type = ?', $vals);
             if(!$row) {
-              $txt = $this->cfg[$ref];
+				$txt = $this->cfg[$ref];
             } else {
-              $txt = $row->clq_value;
+				$txt = $row->clq_value;				
             }; 
             self::cacheWrite($ref.'_'.$this->lcd.'.tmp', $txt);  
             return $txt;  
@@ -211,29 +213,6 @@ class clq {
       } else {
         return "e:".$ref;
       }
-  }
-
-  /**
-  * Returns an array of records of a given type 
-  */
-  function widgetArray($table, $type, $howmany, $json = false, $lang = false) {
-    
-    // Note - Order, Limit!!
-    
-    if($lang == true) {
-      $sql = "SELECT * FROM ".$table." WHERE clq_type = ? AND clq_langcd = ? ORDER by clq_order ASC, clq_reference ASC LIMIT ".+$howmany;
-      $vals = array($type, $this->lcd);
-    } else {
-      $sql = "SELECT * FROM ".$table." WHERE clq_type = ? ORDER by clq_order ASC, clq_reference ASC LIMIT ".+$howmany;
-      $vals = array($type);
-    }
-    $rs = R::getAll($sql, $vals);
-
-    if($json == true) {
-      return json_encode($rs);
-    } else {
-      return $rs;
-    }
   }
   
 	/**
@@ -437,39 +416,6 @@ class clq {
   	$dir_handle=@opendir($path)or die("Unable to open $path");$dirname=end(explode("/",$path));$l.=("<li>$dirname\n");$l.="<ul>\n";while(false!==($file=readdir($dir_handle))){if($file!="."&&$file!=".."){if(is_dir($path."/".$file)){if($type=="list"){$f.=self::ListFolder($path."/".$file,"list");}else{$l.=self::ListFolder($path."/".$file,"tree");}}else{$rawf=$path."/".$file;$qrepl=array('../../','//');$qwith=array('','/');$f.=str_replace($qrepl,$qwith,$rawf).'|';$l.="<li>$file</li>";}}}$l.="</ul>\n";$l.="</li>\n";closedir($dir_handle);if($type=="list"){return$f;}else{return$l;}}
   function toLcandNsp($directory){
   	$f=self::listTree('list',$directory);$f=str_replace('//','/',$f);$files=explode('|',$f);foreach($files as$key=>$name){$oldName=$name;$newName=strtolower($name);$newName=str_replace(' ','',$newName);echo $newName.',';rename($this->rootpath.$oldName,$this->rootpath.$newName);}return"Done";}
-
-  function sendElasticEmail($to, $subject, $body_text, $body_html, $from, $fromName) {
-      
-      $res = ""; 
-
-      $data = "username=".urlencode($this->cfg['mail.uid']);
-      $data .= "&api_key=".urlencode($this->cfg['mail.pwd']);
-      $data .= "&from=".urlencode($from);
-      $data .= "&from_name=".urlencode($fromName);
-      $data .= "&to=".urlencode($to);
-      $data .= "&subject=".urlencode($subject);
-      if($body_html)
-        $data .= "&body_html=".urlencode($body_html);
-      if($body_text)
-        $data .= "&body_text=".urlencode($body_text);
-
-      $header = "POST /mailer/send HTTP/1.0\r\n";
-      $header .= "Content-Type: application/x-www-form-urlencoded\r\n";
-      $header .= "Content-Length: " . strlen($data) . "\r\n\r\n";
-      $fp = fsockopen('ssl://api.elasticemail.com', 443, $errno, $errstr, 30);
-
-      if(!$fp)
-        return "ERROR. Could not open connection";
-      else {
-        fputs ($fp, $header.$data);
-        while (!feof($fp)) {
-          $res .= fread ($fp, 1024);
-        }
-        fclose($fp);
-      }
-      return $res;  
-  }
-
 
     /* Utility Functions */
     public static function toString($array){
@@ -811,46 +757,6 @@ class clq {
         throw new Exception('System Error: ', 0, $e);
       }
     } 
-
-
-    function tableSet($rq,$schema,$fieldset,$offset=0,$limit=0){
-      $flds="id as clq_recid, ";foreach($fieldset as$fld=>$v){array_key_exists('omit',$v)?$flds.='':$flds.=$fld.", ";}
-      $flds=trim($flds,', ');$query="SELECT ".$flds." FROM ".$schema['tbl']."  ";
-      $where="";if($schema['langcd']!=''){if($rq['thisidm']!=null){$where.=" clq_langcd = '".$rq['thisidm']."' AND ";
-      }}if($schema['type']!=''){$where.=" clq_type = '".$rq['subtype']."' AND ";
-      }if(isset($rq['filterscount'])){$filterscount=$rq['filterscount'];if($filterscount>0){$where.=" (";$tmpdatafield="";$tmpfilteroperator="";
-        for($i=0;$i<$filterscount;$i++){$filtervalue=$rq["filtervalue".$i];$filtercondition=$rq["filtercondition".$i];
-          if(array_key_exists('realfield',$fieldset[$rq["filterdatafield".$i]])){$filterdatafield=$fieldset[$rq["filterdatafield".$i]]['realfield'];
-      }else{$filterdatafield=$rq["filterdatafield".$i];}$filteroperator=$rq["filteroperator".$i];if($tmpdatafield==""){$tmpdatafield=$filterdatafield;
-      }elseif($tmpdatafield<>$filterdatafield){$where.=")AND(";}elseif($tmpdatafield==$filterdatafield){if($tmpfilteroperator==0){$where.=" AND ";}else{$where.=" OR ";};
-      }switch($filtercondition){case"NOT_EMPTY":case"NOT_NULL":$where.=" ".$filterdatafield." NOT LIKE '".""."'";break;
-      case"EMPTY":case"NULL":$where.=" ".$filterdatafield." LIKE '".""."'";break;case"CONTAINS_CASE_SENSITIVE":$where.=" BINARY  ".$filterdatafield." LIKE '%".$filtervalue."%'";break;
-      case"CONTAINS":$where.=" ".$filterdatafield." LIKE '%".$filtervalue."%'";break;
-      case"DOES_NOT_CONTAIN_CASE_SENSITIVE":$where.=" BINARY ".$filterdatafield." NOT LIKE '%".$filtervalue."%'";break;
-      case"DOES_NOT_CONTAIN":$where.=" ".$filterdatafield." NOT LIKE '%".$filtervalue."%'";break;
-      case"EQUAL_CASE_SENSITIVE":$where.=" BINARY ".$filterdatafield." = '".$filtervalue."'";break;
-      case"EQUAL":$where.=" ".$filterdatafield." = '".$filtervalue."'";break;
-      case"NOT_EQUAL_CASE_SENSITIVE":$where.=" BINARY ".$filterdatafield." <> '".$filtervalue."'";break;
-      case"NOT_EQUAL":$where.=" ".$filterdatafield." <> '".$filtervalue."'";break;
-      case"GREATER_THAN":$where.=" ".$filterdatafield." > '".$filtervalue."'";break;
-      case"LESS_THAN":$where.=" ".$filterdatafield." < '".$filtervalue."'";break;
-      case"GREATER_THAN_OR_EQUAL":$where.=" ".$filterdatafield." >= '".$filtervalue."'";break;
-      case"LESS_THAN_OR_EQUAL":$where.=" ".$filterdatafield." <= '".$filtervalue."'";break;
-      case"STARTS_WITH_CASE_SENSITIVE":$where.=" BINARY ".$filterdatafield." LIKE '".$filtervalue."%'";break;
-      case"STARTS_WITH":$where.=" ".$filterdatafield." LIKE '".$filtervalue."%'";break;
-      case"ENDS_WITH_CASE_SENSITIVE":$where.=" BINARY ".$filterdatafield." LIKE '%".$filtervalue."'";break;
-      case"ENDS_WITH":$where.=" ".$filterdatafield." LIKE '%".$filtervalue."'";break;
-      }
-      if($i==$filterscount-1){$where.=")";}$tmpfilteroperator=$filteroperator;$tmpdatafield=$filterdatafield;}}}$where=trim($where,'AND ');
-      if($where!=''){$where=" WHERE ".$where;}$query.=$where;
-      if(isset($rq['sortdatafield'])){$sortfield=$rq['sortdatafield'];$sortorder=$rq['sortorder'];if($sortorder!=''){
-        if($sortorder=="desc"){$query.=" ORDER BY ".$sortfield." DESC ";}elseif($sortorder=="asc"){$query.=" ORDER BY ".$sortfield." ASC ";}}
-      }else{$query.=" ORDER BY ".$schema['orderby']." ASC ";}$recs=R::getAll($query);
-      $this->totrows=count($recs);$query.=" LIMIT ".$limit." OFFSET ".$offset;$rs=R::getAll($query);
-      $result=array();for($r=0;$r<count($rs);$r++){$id=$rs[$r]['clq_recid'];$result[$r]['clq_recid']=$id;
-      foreach($fieldset as$fld=>$v){if(array_key_exists('omit',$v)){$result[$r][$fld]=self::formatValue(0,$id,$v);
-      }else{$result[$r][$fld]=self::formatValue($rs[$r][$fld],$id,$v);}}}return$result;
-    }
         
     function getNextRef($default,$fldname="clq_reference",$tbl="clqstring",$type="string"){$sql="SELECT ".$fldname." FROM ".$tbl." WHERE clq_type = '".$type."' AND clq_langcd <> 'z' ORDER BY id DESC LIMIT 1";$nextref=R::getCell($sql);$initref=$nextref;if($nextref!=""){$aa=explode("(",$nextref);$a=$aa[0];$ab=explode(")",$aa[1]);$n=$ab[0];$n=$n+1;$b=$ab[1];$nextref=$a."(".$n.")".$b;}else{$nextref=$default;};return trim($nextref);}
     
@@ -1098,6 +1004,131 @@ class clq {
 			
 			return $str;
 		}
+		
+		/**
+		 * Join $file to $dir path, and clean up any excess slashes.
+		 *
+		 * @author A. Grandt <php@grandt.com>
+		 * @author Greg Kappatos
+		 *
+		 * @param string $dir
+		 * @param string $file
+		 *
+		 * @return string Joined path, with the correct forward slash dir separator.
+		 */
+		function pathJoin($dir, $file) {
+			return self::getrelpath($dir.(empty($dir) || empty($file) ? '' : DIRECTORY_SEPARATOR) . $file);
+		}
+
+		/**
+		 * Clean up a path, removing any unnecessary elements such as /./, // or redundant ../ segments.
+		 * If the path starts with a "/", it is deemed an absolute path and any /../ in the beginning is stripped off.
+		 * The returned path will not end in a "/".
+		 *
+		 * @param String $path The path to clean up
+		 * @return String the clean path
+		*/
+		function getrelpath($path) {
+			$path = preg_replace("#/+\.?/+#", "/", str_replace("\\", "/", $path));
+			$dirs = explode("/", rtrim(preg_replace('#^(\./)+#', '', $path), '/'));
+					
+			$offset = 0;
+			$sub = 0;
+			$subOffset = 0;
+			$root = "";
+
+			if (empty($dirs[0])) {
+				$root = "/";
+				$dirs = array_splice($dirs, 1);
+			} else if (preg_match("#[A-Za-z]:#", $dirs[0])) {
+				$root = strtoupper($dirs[0]) . "/";
+				$dirs = array_splice($dirs, 1);
+			} 
+
+			$newDirs = array();
+			foreach ($dirs as $dir) {
+				if ($dir !== "..") {
+					$subOffset--;    
+					$newDirs[++$offset] = $dir;
+				} else {
+					$subOffset++;
+					if (--$offset < 0) {
+						$offset = 0;
+						if ($subOffset > $sub) {
+							$sub++;
+						} 
+					}
+				}
+			}
+
+			if (empty($root)) {
+				$root = str_repeat("../", $sub);
+			} 
+			return $root . implode("/", array_slice($newDirs, 0, $offset));
+		}
+
+        /**
+        * Generate the compatible menu here and then run it
+        */
+        public function clqUnList($listtype, $json = false) {  
+            $ulst = self::getULSet($listtype, "_", $json); // Top Level
+            return $ulst;
+        }
+
+        function getULSet($listtype, $z, $json) {
+            
+            $sql = "SELECT * FROM clqdata WHERE clq_type = ? AND clq_langcd = ? AND clq_order LIKE ? ORDER BY clq_order ASC";
+            $rs = R::getAll($sql, array($listtype, $this->lcd, $z));
+
+            if(count($rs) > 0) {
+              
+              if($json == false) {
+
+                $ulst = '<ul>';
+                for($r = 0; $r < count($rs); $r++) {      
+                  $ulst .= self::getLItem($rs[$r], $listtype, $json);
+                }      
+                $ulst .= "</ul>".PHP_EOL; 
+
+              } else {
+
+                $ulst = '[';
+                for($r = 0; $r < count($rs); $r++) {      
+                  $ulst .= self::getLItem($rs[$r], $listtype, $json);
+                }      
+                $ulst = trim($ulst, ",");
+                $ulst .= "]"; 
+              }
+
+            } else {
+              $ulst = "";
+            }
+            return $ulst;
+        }
+
+        function getLItem($row, $listtype, $json) {
+
+          if($json == false) {
+
+            $line = '<li>'.$row['clq_reference'].' : '.$row['clq_order'].' : '.$row['clq_title'];
+            $line .= self::getULSet($listtype, $row['clq_order']."_", $json);
+            $line .= '</li>'.PHP_EOL;
+
+          } else {
+
+            $line = '{id: "'.$row['clq_reference'].'", value: "'.$row['clq_order'].' : '.$row['clq_title'].'"';
+            $nextset = self::getULSet($listtype, $row['clq_order']."_", $json);
+            if($nextset != "") {
+               $line .= ', data: '.$nextset;
+            }
+            $line .= '},';
+
+          }
+
+          return $line;
+        }
+
+
 
 }
 // Class Ends

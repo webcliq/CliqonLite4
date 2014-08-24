@@ -5,11 +5,11 @@
 */
 class clqadmin {
 	  
-	public$thisclass="clqadmin";
-	public$db, $lcd, $rootpath, $icnpath, $sitepath, $scripts; 
-	public$qrepl=array();
-	public$qwith=array();
-	public $cfg = array();
+	public $thisclass="clqadmin";
+	public $db, $lcd, $rootpath, $icnpath, $sitepath, $scripts, $dhtmlxpath, $conn; 
+	public $qrepl=array();
+	public $qwith=array();
+	public $cfg = array(); 
 	public $imgdir = "views/gallery/";
 	public $clqschema = array();
 	public $admschema = array();
@@ -24,6 +24,7 @@ class clqadmin {
 		global $cfg; if(!$cfg) {$this->cfg = $_SESSION['CLQ_Config'];} else {$this->cfg = $cfg;};
 		global $lcd; if(!$lcd) {$this->lcd = $_SESSION['CLQ_Langcd'];} else {$this->lcd = $lcd;}; 
 		global $schema; $this->clqschema = $schema; 
+		global $dbcfg;
 
 		require_once($this->rootpath."config/clqadmschema.cfg");
 		$this->admschema = $admschema;
@@ -31,6 +32,18 @@ class clqadmin {
 		// Cliqon Lite language handler
 		require_once($this->rootpath."includes/classes/i18n/cliqon.".$this->lcd.".lcd");
 		$this->lstr = $lstr;
+
+		/*
+		$this->dhtmlxpath = $this->rootpath."includes/classes/dhtmlx/";
+		require($this->dhtmlxpath."db_pdo.php");
+	    switch($dbcfg['dbtype']){
+	        case"mysql": $this->conn = new PDO('mysql:host='.$dbcfg['server'].';dbname='.$dbcfg['db'], $dbcfg['user'], $dbcfg['password']); break;
+	        case"pgsql": $this->conn = new PDO('pgsql:host='.$dbcfg['server'].';dbname='.$dbcfg['db'], $dbcfg['user'], $dbcfg['password']); break;
+	        case"sqlite": $this->conn = new PDO('sqlite:'.$this->rootpath.'data/'.$dbcfg['db'], $dbcfg['user'], $dbcfg['password']); break;
+	    }
+
+	    // $this->conn->enable_log($this->rootpath."log/dhtmlx.log", true);
+	    */
 
 	}
 
@@ -215,7 +228,7 @@ class clqadmin {
 			$this->table = $table; $this->type = $type;
 			$wjs = "";
 			$wjs .= "
-				[{type: 'header', template: dataTableTitle('".$this->table."', '".$this->type."')},
+				[{type: 'header', template: adminTitle('".$this->table."', '".$this->type."', 'dtable')},
 				{ 
 					view:'datatable', id: 'dtable', select:false, minWidth: 580, height:600, scroll: false, scrollY: false, scrollX: true,
 					 ".$iedit." header: 'placeholder', fixedRowHeight: false, resizeColumn:true, columns:".self::dataTableCols($type).", 
@@ -403,14 +416,62 @@ class clqadmin {
 			$this->table = $table; $this->type = $type;
 			$wjs = "";
 			$wjs .= "
-				[{type: 'header', template: '".$this->lstr[374]."'},
-				{type: 'datatree', height:580,  minWidth:600, template: 'DataTree Here'}]
+				[{type: 'header', template: adminTitle('".$this->table."', '".$this->type."', 'dtree')},
+				{
+				    view:'tree', id: 'dtree', select:true, minWidth: 580, height:600, footer: false, css: 'clqtree',
+				    url: '".$this->sitepath."includes/get.php?langcd=".$this->lcd."&action=gettreeset&table=".$this->table."&tabletype=".$this->type."',		
+					template: '{common.icon()} {common.folder()} <span id=\"#id#\">#value#</span>',
+				    on:{
+				        onBeforeLoad:function(){
+				            webix.message('Loading...');
+				        },
+				        onAfterLoad:function(){				        
+				            if (!this.count()) {
+	    						webix.message('Sorry, there is no data');
+				            }
+				        },
+				        onItemClick: function(id) {
+				        	var thisspan = 'span[id=\"' + id +'\"]';
+    						var x = $(thisspan).position();
+    						var ow = $(thisspan).outerWidth();
+				        	clqBar(id, x, ow, '".$this->table."', '".$this->type."');
+				        }
+				    }			
+				}]
 			";
 			return $wjs;			
 		}
 
-		function setDataTreeScripts() {
-			$this->scripts .= "";
+		function setDataTreeScripts($type) {
+			
+			$this->scripts .= "
+				
+				store.set('table', '".$this->table."');
+				store.set('type', '".$this->type."');
+				
+				// Top Buttons
+					$('.topbutton').livequery('click', function(e) {
+						var action = $(this).attr('rel'); 
+						topButtons(action, '".$this->table."', '".$this->type."', e);
+					});
+
+				// Supports utilities
+				$('.utilclosebutton').on('click', function() {
+					$('#contextmenu').removeClass('show').addClass('hide');
+				});
+
+				$('.cmenubutton').livequery('click', function(e) {
+					utilMenuClick(this);
+				});
+
+
+
+			";
+		}
+
+		function dataTreeData($rq) {
+			$rs = clq::clqUnList($rq['tabletype'], true);
+		    return $rs;
 		}
 
 	/*********************************************  Webix Support Classes - Gallery  ***********************************************************************************/
@@ -939,7 +1000,7 @@ class clqadmin {
 		function publishToolbar($type) {
 
 			$tlb = $this->clqschema[$this->table]['types'][$type]['toolbar'];
-			$tb = '<div id="admintoolbar" class="hide" style="display:none;">';
+			$tb = '<div id="admintoolbar" class="hide" >';
 			
 			// record, set, content, json, view, delete
 			if(in_array('record', $tlb)) {$tb .= '<a href="#" rel="editrecord" ><i class="fa fa-wrench" title="'.$this->lstr[100].'" alt="'.$this->lstr[100].'"></i></a>';};
